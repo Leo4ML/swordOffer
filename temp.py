@@ -1,24 +1,19 @@
 # -*- coding:utf-8 -*-
-class Solution:
-    def Permutation(self, ss):
-        # write code here
-        res=[]
-        l=list(ss)
-        if len(ss)==1:
-            res.append(l)
-            return list(ss)
-            #break
-        #if len(ss)==2:
-            #res.append(l)
-            #res.append(l[::-1])
-        if len(ss)>=2:
-            #s=[]
-            for i in range(len(l)):
-                s=[]
-                s.append(l[i])
-                del l[i]
-                s+self.Permutation(str(l))
-        return res
-s=Solution()
-print s.Permutation('abc')
-            
+
+       # write code here
+L=[]
+c=0
+a=[1,2,3,4,5]
+b=[4,5,3,2,1]
+for i in a:
+    if i !=b[c]:
+        L.append(i)
+    else:
+        c+=1
+                
+if b[c:-1]==L[::-1]:
+    print (True)
+else:
+    print (False)
+        
+

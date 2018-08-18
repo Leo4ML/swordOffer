@@ -1,18 +1,13 @@
+# -*- coding:utf-8 -*-
 class Solution:
-    def Permutation(self,ss):
+    def FindGreatestSumOfSubArray(self, array):
         # write code here
-        if len(ss)==0:
-            return []
-        if len(ss)==1:
-            return [ss]
-        else:
-            L=[]
+        k=1
+        ans=[]
+        while k<=len(array):
             res=[]
-            for q in self.Permutation(ss[0:-1]):
-                res.append(list(q))
-            for i in res:
-                for x in range(len(i)+1):
-                    i.insert(x,ss[-1])
-                    L.append(''.join(i))
-                    del i[x]
-            return sorted(list(set(L)))
+            for i in range(len(array)-k+1):
+                res.append(sum(array[i:i+k]))
+            ans.append(max(res))
+            k+=1
+        return max(ans)
